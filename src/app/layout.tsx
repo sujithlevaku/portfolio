@@ -7,6 +7,7 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+
 export const metadata: Metadata = {
   title: 'Sujith Kumar Reddy | Sr. Full Stack & DevOps Engineer',
   description: 'Senior Software Engineer specializing in Ruby on Rails, React, and robust cloud infrastructure automation via Terraform, Kubernetes, and GitOps workflows.',
@@ -17,13 +18,15 @@ export const metadata: Metadata = {
     'Ruby on Rails Full Stack Engineer', 
     'DevOps Terraform Kubernetes'
   ],
+  verification: {
+    google: '7hvpmhp7MPjBDbRwnWg9HWm0U0_yW9tctoFQw0gPRxY',
+  },
   icons: {
     icon: [
       { url: '/assets/images/app_logo.png', type: 'image/x-icon' }
     ],
   },
 };
-
 
 export default function RootLayout({
   children,
