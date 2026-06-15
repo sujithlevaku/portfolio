@@ -8,14 +8,22 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'SystemBuilder — Building Systems That Outlast the Sprint',
-  description: 'Senior software engineer portfolio. Currently compiling. Get notified at launch or download the one-page résumé now. Built for CTOs, founders, and teams who need depth.',
+  title: 'Sujith Kumar Reddy | Sr. Full Stack & DevOps Engineer',
+  description: 'Senior Software Engineer specializing in Ruby on Rails, React, and robust cloud infrastructure automation via Terraform, Kubernetes, and GitOps workflows.',
+  keywords: [
+    'sujithreddy dev', 
+    'Sujith Kumar Reddy Levaku', 
+    'Sujith Levaku', 
+    'Ruby on Rails Full Stack Engineer', 
+    'DevOps Terraform Kubernetes'
+  ],
   icons: {
     icon: [
       { url: '/assets/images/app_logo.png', type: 'image/x-icon' }
     ],
   },
 };
+
 
 export default function RootLayout({
   children,
