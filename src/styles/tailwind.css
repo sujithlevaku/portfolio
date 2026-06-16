@@ -5,17 +5,17 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --void: #0B0D0F;
-  --gunmetal: #1E2328;
-  --gunmetal-light: #252B31;
-  --chromium: #7A8490;
-  --chromium-light: #9AA3AD;
-  --electric: #00E5FF;
+  --void: #0b0d0f;
+  --gunmetal: #1e2328;
+  --gunmetal-light: #252b31;
+  --chromium: #7a8490;
+  --chromium-light: #9aa3ad;
+  --electric: #00e5ff;
   --electric-dim: rgba(0, 229, 255, 0.15);
   --electric-glow: rgba(0, 229, 255, 0.4);
-  --white-5: rgba(255,255,255,0.05);
-  --white-10: rgba(255,255,255,0.10);
-  --white-20: rgba(255,255,255,0.20);
+  --white-5: rgba(255, 255, 255, 0.05);
+  --white-10: rgba(255, 255, 255, 0.1);
+  --white-20: rgba(255, 255, 255, 0.2);
 }
 
 html {
@@ -48,7 +48,9 @@ body {
   z-index: 9999;
   transform: translate(-50%, -50%);
   transition: transform 0.05s ease;
-  box-shadow: 0 0 12px var(--electric), 0 0 24px var(--electric-glow);
+  box-shadow:
+    0 0 12px var(--electric),
+    0 0 24px var(--electric-glow);
 }
 
 .cursor-ring {
@@ -62,7 +64,11 @@ body {
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
-  transition: transform 0.12s cubic-bezier(0.22, 1, 0.36, 1), width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.12s cubic-bezier(0.22, 1, 0.36, 1),
+    width 0.2s ease,
+    height 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .cursor-ring.hovering {
@@ -72,13 +78,25 @@ body {
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--void); }
-::-webkit-scrollbar-thumb { background: var(--gunmetal-light); border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: var(--chromium); }
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--void);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gunmetal-light);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--chromium);
+}
 
 /* Selection */
-::selection { background: var(--electric-dim); color: var(--electric); }
+::selection {
+  background: var(--electric-dim);
+  color: var(--electric);
+}
 
 /* Snap scroll */
 .snap-container {
@@ -93,91 +111,187 @@ body {
 }
 
 /* Typography */
-.font-mono { font-family: 'JetBrains Mono', monospace !important; }
-.font-sans { font-family: 'Manrope', sans-serif !important; }
+.font-mono {
+  font-family: 'JetBrains Mono', monospace !important;
+}
+.font-sans {
+  font-family: 'Manrope', sans-serif !important;
+}
 
 /* Animations */
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 @keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100vh); }
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
 }
 
 @keyframes pulse-ring {
-  0% { transform: scale(1); opacity: 0.6; }
-  100% { transform: scale(2.5); opacity: 0; }
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
 }
 
 @keyframes float-orbit {
-  0% { transform: rotate(0deg) translateX(var(--orbit-r, 80px)) rotate(0deg); }
-  100% { transform: rotate(360deg) translateX(var(--orbit-r, 80px)) rotate(-360deg); }
+  0% {
+    transform: rotate(0deg) translateX(var(--orbit-r, 80px)) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(var(--orbit-r, 80px)) rotate(-360deg);
+  }
 }
 
 @keyframes draw-line {
-  from { stroke-dashoffset: 1000; }
-  to { stroke-dashoffset: 0; }
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes counter-tick {
-  from { transform: translateY(8px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes node-expand {
-  from { r: 4; opacity: 0; }
-  to { r: 8; opacity: 1; }
+  from {
+    r: 4;
+    opacity: 0;
+  }
+  to {
+    r: 8;
+    opacity: 1;
+  }
 }
 
 @keyframes grid-glow {
-  0%, 100% { opacity: 0.03; }
-  50% { opacity: 0.06; }
+  0%,
+  100% {
+    opacity: 0.03;
+  }
+  50% {
+    opacity: 0.06;
+  }
 }
 
 @keyframes assemble-piece {
-  0% { opacity: 0; transform: translateY(12px) scale(0.95); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @keyframes steam-rise {
-  0% { transform: translateY(0) scaleX(1); opacity: 0.4; }
-  50% { transform: translateY(-8px) scaleX(1.2); opacity: 0.2; }
-  100% { transform: translateY(-16px) scaleX(0.8); opacity: 0; }
+  0% {
+    transform: translateY(0) scaleX(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-8px) scaleX(1.2);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-16px) scaleX(0.8);
+    opacity: 0;
+  }
 }
 
 @keyframes code-cascade {
-  0% { transform: translateY(-100%); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateY(100%); opacity: 0; }
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
 }
 
 @keyframes commit-connect {
-  from { stroke-dashoffset: 200; opacity: 0; }
-  to { stroke-dashoffset: 0; opacity: 1; }
+  from {
+    stroke-dashoffset: 200;
+    opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
 @keyframes electric-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 var(--electric-glow); }
-  50% { box-shadow: 0 0 0 8px transparent; }
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--electric-glow);
+  }
+  50% {
+    box-shadow: 0 0 0 8px transparent;
+  }
 }
 
-.animate-blink { animation: blink 1s step-end infinite; }
-.animate-fade-up { animation: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
-.animate-electric-pulse { animation: electric-pulse 2s ease-in-out infinite; }
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+.animate-fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.animate-electric-pulse {
+  animation: electric-pulse 2s ease-in-out infinite;
+}
 
 /* Noise texture overlay */
 .noise-overlay {
@@ -215,22 +329,42 @@ body {
 }
 
 /* Electric text */
-.text-electric { color: var(--electric); }
-.text-chromium { color: var(--chromium); }
-.text-chromium-light { color: var(--chromium-light); }
-.bg-void { background-color: var(--void); }
-.bg-gunmetal { background-color: var(--gunmetal); }
-.border-electric { border-color: var(--electric); }
-.border-gunmetal { border-color: var(--gunmetal); }
-.border-white-10 { border-color: var(--white-10); }
+.text-electric {
+  color: var(--electric);
+}
+.text-chromium {
+  color: var(--chromium);
+}
+.text-chromium-light {
+  color: var(--chromium-light);
+}
+.bg-void {
+  background-color: var(--void);
+}
+.bg-gunmetal {
+  background-color: var(--gunmetal);
+}
+.border-electric {
+  border-color: var(--electric);
+}
+.border-gunmetal {
+  border-color: var(--gunmetal);
+}
+.border-white-10 {
+  border-color: var(--white-10);
+}
 
 /* Glow effects */
 .glow-electric {
-  box-shadow: 0 0 20px var(--electric-glow), 0 0 40px rgba(0, 229, 255, 0.1);
+  box-shadow:
+    0 0 20px var(--electric-glow),
+    0 0 40px rgba(0, 229, 255, 0.1);
 }
 
 .text-glow {
-  text-shadow: 0 0 20px var(--electric-glow), 0 0 40px rgba(0, 229, 255, 0.2);
+  text-shadow:
+    0 0 20px var(--electric-glow),
+    0 0 40px rgba(0, 229, 255, 0.2);
 }
 
 /* Terminal card */
@@ -246,7 +380,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0,229,255,0.03) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.03) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -273,17 +407,22 @@ body {
 .section-visible {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Shimmer button */
 .btn-shimmer {
-  background: linear-gradient(90deg, var(--electric) 0%, #00BFFF 50%, var(--electric) 100%);
+  background: linear-gradient(90deg, var(--electric) 0%, #00bfff 50%, var(--electric) 100%);
   background-size: 200% auto;
   color: var(--void);
   font-weight: 700;
   letter-spacing: 0.05em;
-  transition: background-position 0.4s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    background-position 0.4s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .btn-shimmer:hover {
@@ -299,7 +438,9 @@ body {
   color: var(--chromium-light);
   font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
   outline: none;
 }
 
@@ -313,12 +454,30 @@ body {
 }
 
 /* Orbit animation helpers */
-.orbit-1 { --orbit-r: 90px; animation: float-orbit 8s linear infinite; }
-.orbit-2 { --orbit-r: 130px; animation: float-orbit 12s linear infinite reverse; }
-.orbit-3 { --orbit-r: 170px; animation: float-orbit 16s linear infinite; }
-.orbit-4 { --orbit-r: 110px; animation: float-orbit 10s linear infinite reverse; }
-.orbit-5 { --orbit-r: 150px; animation: float-orbit 14s linear infinite; }
-.orbit-6 { --orbit-r: 200px; animation: float-orbit 18s linear infinite reverse; }
+.orbit-1 {
+  --orbit-r: 90px;
+  animation: float-orbit 8s linear infinite;
+}
+.orbit-2 {
+  --orbit-r: 130px;
+  animation: float-orbit 12s linear infinite reverse;
+}
+.orbit-3 {
+  --orbit-r: 170px;
+  animation: float-orbit 16s linear infinite;
+}
+.orbit-4 {
+  --orbit-r: 110px;
+  animation: float-orbit 10s linear infinite reverse;
+}
+.orbit-5 {
+  --orbit-r: 150px;
+  animation: float-orbit 14s linear infinite;
+}
+.orbit-6 {
+  --orbit-r: 200px;
+  animation: float-orbit 18s linear infinite reverse;
+}
 
 /* Node connection lines */
 .arch-line {
@@ -338,7 +497,9 @@ body {
 }
 
 /* Hover interactive links */
-a, button, [role="button"] {
+a,
+button,
+[role='button'] {
   cursor: none;
 }
 
@@ -357,7 +518,8 @@ a, button, [role="button"] {
     width: 100%;
     max-width: 100vw;
   }
-  html, body {
+  html,
+  body {
     height: auto;
     min-height: 100dvh;
     overflow-x: hidden;
@@ -366,9 +528,16 @@ a, button, [role="button"] {
   body {
     cursor: auto;
   }
-  .cursor-dot, .cursor-ring { display: none; }
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
   /* Prevent horizontal overflow on mobile */
-  section, main { overflow-x: hidden; max-width: 100vw; }
+  section,
+  main {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
   /* Ensure inputs are large enough to tap */
   .input-terminal {
     font-size: 16px !important; /* Prevents iOS zoom on focus */

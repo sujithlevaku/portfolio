@@ -12,15 +12,6 @@ const nextConfig = {
   images: {
     remotePatterns: imageHosts,
   },
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/home',
-        permanent: false,
-      },
-    ];
-  },
   webpack(
     config,
     {

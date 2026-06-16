@@ -12,10 +12,30 @@ interface Stat {
 }
 
 const STATS: Stat[] = [
-  { label: 'Years Experience', value: 7, suffix: '+', description: 'Full-stack web development across startups and enterprise environments' },
-  { label: 'Companies', value: 5, suffix: '', description: 'Nucleus, Appen AI, Techigai, Techaffinity, Tesark Technologies' },
-  { label: 'Projects Shipped', value: 10, suffix: '+', description: 'Production SaaS, AI, and enterprise platforms delivered end-to-end' },
-  { label: 'Tech Stack', value: 20, suffix: '+', description: 'Languages, frameworks, databases, cloud tools, and integrations' },
+  {
+    label: 'Years Experience',
+    value: 7,
+    suffix: '+',
+    description: 'Full-stack web development across startups and enterprise environments',
+  },
+  {
+    label: 'Companies',
+    value: 5,
+    suffix: '',
+    description: 'Nucleus, Appen AI, Techigai, Techaffinity, Tesark Technologies',
+  },
+  {
+    label: 'Projects Shipped',
+    value: 10,
+    suffix: '+',
+    description: 'Production SaaS, AI, and enterprise platforms delivered end-to-end',
+  },
+  {
+    label: 'Tech Stack',
+    value: 20,
+    suffix: '+',
+    description: 'Languages, frameworks, databases, cloud tools, and integrations',
+  },
 ];
 
 const SKILL_GROUPS = [
@@ -79,14 +99,28 @@ function StatCard({ stat, active, index }: { stat: Stat; active: boolean; index:
         transition: `opacity 0.6s ${index * 0.1}s ease, transform 0.6s ${index * 0.1}s cubic-bezier(0.22,1,0.36,1)`,
       }}
     >
-      <div className="font-mono text-xs uppercase tracking-widest" style={{ color: 'rgba(122,132,144,0.5)' }}>
+      <div
+        className="font-mono text-xs uppercase tracking-widest"
+        style={{ color: 'rgba(122,132,144,0.5)' }}
+      >
         {stat.label}
       </div>
       <div
         className="font-mono counter-num"
-        style={{ color: 'var(--electric)', fontSize: '2.5rem', fontWeight: 700, lineHeight: 1, letterSpacing: '-0.04em' }}
+        style={{
+          color: 'var(--electric)',
+          fontSize: '2.5rem',
+          fontWeight: 700,
+          lineHeight: 1,
+          letterSpacing: '-0.04em',
+        }}
       >
-        {stat.prefix || ''}{value.toLocaleString('en-US', { minimumFractionDigits: stat.decimals || 0, maximumFractionDigits: stat.decimals || 0 })}{stat.suffix}
+        {stat.prefix || ''}
+        {value.toLocaleString('en-US', {
+          minimumFractionDigits: stat.decimals || 0,
+          maximumFractionDigits: stat.decimals || 0,
+        })}
+        {stat.suffix}
       </div>
       <div className="font-sans text-xs leading-relaxed" style={{ color: 'var(--chromium)' }}>
         {stat.description}
@@ -101,7 +135,9 @@ export default function StatsSection() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
+      },
       { threshold: 0.2 }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -120,8 +156,13 @@ export default function StatsSection() {
       {/* Header */}
       <div className="relative z-10 pt-24 px-6 md:px-16">
         <div className="flex items-center gap-3 mb-4">
-          <span className="font-mono text-xs" style={{ color: 'var(--electric)' }}>03 /</span>
-          <span className="font-mono text-xs uppercase tracking-widest" style={{ color: 'rgba(122,132,144,0.6)' }}>
+          <span className="font-mono text-xs" style={{ color: 'var(--electric)' }}>
+            03 /
+          </span>
+          <span
+            className="font-mono text-xs uppercase tracking-widest"
+            style={{ color: 'rgba(122,132,144,0.6)' }}
+          >
             Skills & Stats
           </span>
         </div>
@@ -132,7 +173,8 @@ export default function StatsSection() {
           Technical Stack
         </h2>
         <p className="font-mono text-sm max-w-lg" style={{ color: 'var(--chromium)' }}>
-          7 years of hands-on experience across the full stack — from Rails APIs to React UIs to AWS deployments.
+          7 years of hands-on experience across the full stack — from Rails APIs to React UIs to AWS
+          deployments.
         </p>
       </div>
 
@@ -172,7 +214,7 @@ export default function StatsSection() {
                     {group.label}
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    {group.skills.map(skill => (
+                    {group.skills.map((skill) => (
                       <span
                         key={skill}
                         className="font-mono text-xs px-2.5 py-1 rounded-sm border"

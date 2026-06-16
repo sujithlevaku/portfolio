@@ -15,7 +15,8 @@ interface Project {
 const PROJECTS: Project[] = [
   {
     name: 'BusPatrol',
-    description: 'School bus safety platform improving student transportation safety and compliance across North America.',
+    description:
+      'School bus safety platform improving student transportation safety and compliance across North America.',
     tech: ['Ruby on Rails', 'Elasticsearch', 'REST APIs', 'PostgreSQL'],
     role: 'Senior Full Stack Developer (Contractor)',
     company: 'Nucleus Software Technologies',
@@ -29,7 +30,8 @@ const PROJECTS: Project[] = [
   },
   {
     name: 'Appen Data Annotation Platform',
-    description: 'Large-scale platform supporting AI training and data annotation workflows for machine learning pipelines.',
+    description:
+      'Large-scale platform supporting AI training and data annotation workflows for machine learning pipelines.',
     tech: ['Ruby on Rails', 'Elasticsearch', 'AWS', 'PostgreSQL'],
     role: 'Senior Full Stack Developer',
     company: 'Appen AI',
@@ -43,7 +45,8 @@ const PROJECTS: Project[] = [
   },
   {
     name: 'MetaDash',
-    description: 'SaaS platform for educational institutions to manage courses, academic records, and payments.',
+    description:
+      'SaaS platform for educational institutions to manage courses, academic records, and payments.',
     tech: ['Ruby on Rails', 'PostgreSQL', 'AWS', 'Twilio', 'SendGrid', 'Razorpay'],
     role: 'Full Stack Developer',
     company: 'Techaffinity',
@@ -65,7 +68,9 @@ export default function ArchitectureSection() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
+      },
       { threshold: 0.2 }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -84,8 +89,13 @@ export default function ArchitectureSection() {
       {/* Header */}
       <div className="relative z-10 pt-24 px-6 md:px-16">
         <div className="flex items-center gap-3 mb-4">
-          <span className="font-mono text-xs" style={{ color: 'var(--electric)' }}>02 /</span>
-          <span className="font-mono text-xs uppercase tracking-widest" style={{ color: 'rgba(122,132,144,0.6)' }}>
+          <span className="font-mono text-xs" style={{ color: 'var(--electric)' }}>
+            02 /
+          </span>
+          <span
+            className="font-mono text-xs uppercase tracking-widest"
+            style={{ color: 'rgba(122,132,144,0.6)' }}
+          >
             Projects & Experience
           </span>
         </div>
@@ -107,7 +117,10 @@ export default function ArchitectureSection() {
           {PROJECTS.map((project, i) => (
             <button
               key={project.name}
-              onClick={() => { setActiveProject(project); setActiveIndex(i); }}
+              onClick={() => {
+                setActiveProject(project);
+                setActiveIndex(i);
+              }}
               className="text-left terminal-card px-4 py-4 transition-all duration-200"
               style={{
                 borderColor: activeIndex === i ? 'rgba(0,229,255,0.5)' : 'rgba(255,255,255,0.06)',
@@ -120,7 +133,9 @@ export default function ArchitectureSection() {
               <div className="flex items-center gap-2 mb-1">
                 <span
                   className="w-1.5 h-1.5 rounded-full shrink-0"
-                  style={{ background: activeIndex === i ? 'var(--electric)' : 'rgba(122,132,144,0.4)' }}
+                  style={{
+                    background: activeIndex === i ? 'var(--electric)' : 'rgba(122,132,144,0.4)',
+                  }}
                 />
                 <span
                   className="font-mono text-xs font-700"
@@ -132,7 +147,10 @@ export default function ArchitectureSection() {
               <div className="font-mono text-xs pl-3.5" style={{ color: 'rgba(122,132,144,0.5)' }}>
                 {project.company}
               </div>
-              <div className="font-mono text-xs pl-3.5 mt-0.5" style={{ color: 'rgba(122,132,144,0.35)' }}>
+              <div
+                className="font-mono text-xs pl-3.5 mt-0.5"
+                style={{ color: 'rgba(122,132,144,0.35)' }}
+              >
                 {project.period}
               </div>
             </button>
@@ -174,20 +192,33 @@ export default function ArchitectureSection() {
             </div>
 
             {/* Description */}
-            <p className="font-sans text-sm leading-relaxed mb-5" style={{ color: 'var(--chromium)' }}>
+            <p
+              className="font-sans text-sm leading-relaxed mb-5"
+              style={{ color: 'var(--chromium)' }}
+            >
               {activeProject.description}
             </p>
 
             {/* Highlights */}
             <div className="mb-5">
-              <div className="font-mono text-xs uppercase tracking-widest mb-3" style={{ color: 'rgba(122,132,144,0.5)' }}>
+              <div
+                className="font-mono text-xs uppercase tracking-widest mb-3"
+                style={{ color: 'rgba(122,132,144,0.5)' }}
+              >
                 Key Contributions
               </div>
               <div className="space-y-2">
                 {activeProject.highlights.map((h, i) => (
                   <div key={i} className="flex items-start gap-2">
-                    <span className="font-mono text-xs mt-0.5 shrink-0" style={{ color: 'var(--electric)' }}>→</span>
-                    <span className="font-sans text-sm" style={{ color: 'var(--chromium)' }}>{h}</span>
+                    <span
+                      className="font-mono text-xs mt-0.5 shrink-0"
+                      style={{ color: 'var(--electric)' }}
+                    >
+                      →
+                    </span>
+                    <span className="font-sans text-sm" style={{ color: 'var(--chromium)' }}>
+                      {h}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -195,11 +226,14 @@ export default function ArchitectureSection() {
 
             {/* Tech stack */}
             <div>
-              <div className="font-mono text-xs uppercase tracking-widest mb-3" style={{ color: 'rgba(122,132,144,0.5)' }}>
+              <div
+                className="font-mono text-xs uppercase tracking-widest mb-3"
+                style={{ color: 'rgba(122,132,144,0.5)' }}
+              >
                 Tech Stack
               </div>
               <div className="flex flex-wrap gap-2">
-                {activeProject.tech.map(t => (
+                {activeProject.tech.map((t) => (
                   <span
                     key={t}
                     className="font-mono text-xs px-3 py-1 rounded-sm border"

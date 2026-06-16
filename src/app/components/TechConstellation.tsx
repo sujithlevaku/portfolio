@@ -13,18 +13,114 @@ interface TechNode {
 }
 
 const TECH_NODES: TechNode[] = [
-  { id: 'ts', label: 'TypeScript', category: 'language', angle: 0, orbitRadius: 200, speed: 0.4, icon: 'TS' },
-  { id: 'ruby', label: 'Ruby', category: 'language', angle: 60, orbitRadius: 290, speed: 0.25, icon: '💎' },
-  { id: 'python', label: 'Python', category: 'language', angle: 120, orbitRadius: 180, speed: 0.5, icon: '🐍' },
-  { id: 'react', label: 'React', category: 'framework', angle: 180, orbitRadius: 260, speed: 0.35, icon: '⚛' },
-  { id: 'rails', label: 'Ruby on Rails', category: 'framework', angle: 240, orbitRadius: 210, speed: 0.3, icon: '🛤' },
-  { id: 'k8s', label: 'Kubernetes', category: 'infra', angle: 30, orbitRadius: 340, speed: 0.2, icon: '☸' },
-  { id: 'docker', label: 'Docker', category: 'infra', angle: 150, orbitRadius: 310, speed: 0.28, icon: '🐳' },
-  { id: 'pg', label: 'PostgreSQL', category: 'db', angle: 270, orbitRadius: 240, speed: 0.32, icon: '🐘' },
-  { id: 'redis', label: 'Redis', category: 'db', angle: 315, orbitRadius: 320, speed: 0.22, icon: '⚡' },
-  { id: 'gql', label: 'GraphQL', category: 'framework', angle: 90, orbitRadius: 370, speed: 0.18, icon: '◈' },
-  { id: 'aws', label: 'AWS', category: 'infra', angle: 200, orbitRadius: 390, speed: 0.15, icon: '☁' },
-  { id: 'grpc', label: 'gRPC', category: 'framework', angle: 330, orbitRadius: 230, speed: 0.38, icon: '⇄' },
+  {
+    id: 'ts',
+    label: 'TypeScript',
+    category: 'language',
+    angle: 0,
+    orbitRadius: 200,
+    speed: 0.4,
+    icon: 'TS',
+  },
+  {
+    id: 'ruby',
+    label: 'Ruby',
+    category: 'language',
+    angle: 60,
+    orbitRadius: 290,
+    speed: 0.25,
+    icon: '💎',
+  },
+  {
+    id: 'python',
+    label: 'Python',
+    category: 'language',
+    angle: 120,
+    orbitRadius: 180,
+    speed: 0.5,
+    icon: '🐍',
+  },
+  {
+    id: 'react',
+    label: 'React',
+    category: 'framework',
+    angle: 180,
+    orbitRadius: 260,
+    speed: 0.35,
+    icon: '⚛',
+  },
+  {
+    id: 'rails',
+    label: 'Ruby on Rails',
+    category: 'framework',
+    angle: 240,
+    orbitRadius: 210,
+    speed: 0.3,
+    icon: '🛤',
+  },
+  {
+    id: 'k8s',
+    label: 'Kubernetes',
+    category: 'infra',
+    angle: 30,
+    orbitRadius: 340,
+    speed: 0.2,
+    icon: '☸',
+  },
+  {
+    id: 'docker',
+    label: 'Docker',
+    category: 'infra',
+    angle: 150,
+    orbitRadius: 310,
+    speed: 0.28,
+    icon: '🐳',
+  },
+  {
+    id: 'pg',
+    label: 'PostgreSQL',
+    category: 'db',
+    angle: 270,
+    orbitRadius: 240,
+    speed: 0.32,
+    icon: '🐘',
+  },
+  {
+    id: 'redis',
+    label: 'Redis',
+    category: 'db',
+    angle: 315,
+    orbitRadius: 320,
+    speed: 0.22,
+    icon: '⚡',
+  },
+  {
+    id: 'gql',
+    label: 'GraphQL',
+    category: 'framework',
+    angle: 90,
+    orbitRadius: 370,
+    speed: 0.18,
+    icon: '◈',
+  },
+  {
+    id: 'aws',
+    label: 'AWS',
+    category: 'infra',
+    angle: 200,
+    orbitRadius: 390,
+    speed: 0.15,
+    icon: '☁',
+  },
+  {
+    id: 'grpc',
+    label: 'gRPC',
+    category: 'framework',
+    angle: 330,
+    orbitRadius: 230,
+    speed: 0.38,
+    icon: '⇄',
+  },
 ];
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -41,13 +137,15 @@ export default function TechConstellation() {
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
   const animFrameRef = useRef<number>(0);
   const timeRef = useRef(0);
-  const nodesRef = useRef(TECH_NODES.map(n => ({ ...n })));
+  const nodesRef = useRef(TECH_NODES.map((n) => ({ ...n })));
   const hoveredNodeRef = useRef<string | null>(null);
   const isMobileRef = useRef(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
+      },
       { threshold: 0.3 }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -90,12 +188,12 @@ export default function TechConstellation() {
       ctx.clearRect(0, 0, W, H);
 
       // Update node positions
-      nodesRef.current.forEach(node => {
+      nodesRef.current.forEach((node) => {
         node.angle += node.speed * dt * 15;
       });
 
       const positions: Record<string, { x: number; y: number }> = {};
-      nodesRef.current.forEach(node => {
+      nodesRef.current.forEach((node) => {
         const rad = (node.angle * Math.PI) / 180;
         positions[node.id] = {
           x: cx + Math.cos(rad) * node.orbitRadius * scale,
@@ -114,9 +212,15 @@ export default function TechConstellation() {
 
       // Draw connection lines between related nodes
       const connections = [
-        ['ts', 'react'], ['ts', 'rails'], ['react', 'rails'],
-        ['ruby', 'grpc'], ['ruby', 'k8s'], ['k8s', 'docker'],
-        ['pg', 'redis'], ['gql', 'react'], ['aws', 'k8s'],
+        ['ts', 'react'],
+        ['ts', 'rails'],
+        ['react', 'rails'],
+        ['ruby', 'grpc'],
+        ['ruby', 'k8s'],
+        ['k8s', 'docker'],
+        ['pg', 'redis'],
+        ['gql', 'react'],
+        ['aws', 'k8s'],
         ['python', 'grpc'],
       ];
       connections.forEach(([a, b]) => {
@@ -152,7 +256,7 @@ export default function TechConstellation() {
       const nodeR = isMobileRef.current ? 14 : 20;
       const nodeRHovered = isMobileRef.current ? 18 : 28;
 
-      nodesRef.current.forEach(node => {
+      nodesRef.current.forEach((node) => {
         const pos = positions[node.id];
         const isHovered = hoveredNodeRef.current === node.id;
         const color = CATEGORY_COLORS[node.category];
@@ -181,7 +285,7 @@ export default function TechConstellation() {
 
         // Icon
         ctx.fillStyle = color;
-        const iconSize = isMobileRef.current ? (isHovered ? 11 : 10) : (isHovered ? 16 : 14);
+        const iconSize = isMobileRef.current ? (isHovered ? 11 : 10) : isHovered ? 16 : 14;
         ctx.font = `${iconSize}px JetBrains Mono`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
@@ -190,7 +294,7 @@ export default function TechConstellation() {
         // Label — hide on mobile unless hovered to reduce clutter
         if (!isMobileRef.current || isHovered) {
           ctx.fillStyle = isHovered ? 'rgba(0,229,255,0.9)' : 'rgba(122,132,144,0.7)';
-          const labelSize = isMobileRef.current ? 9 : (isHovered ? 14 : 11);
+          const labelSize = isMobileRef.current ? 9 : isHovered ? 14 : 11;
           ctx.font = `${labelSize}px Manrope`;
           ctx.textAlign = 'center';
           ctx.fillText(node.label, pos.x, pos.y + r + (isMobileRef.current ? 10 : 14));
@@ -217,7 +321,7 @@ export default function TechConstellation() {
     const hitRadius = isMobileRef.current ? 28 : 24;
 
     let found: string | null = null;
-    nodesRef.current.forEach(node => {
+    nodesRef.current.forEach((node) => {
       const rad = (node.angle * Math.PI) / 180;
       const nx = cx + Math.cos(rad) * node.orbitRadius * scale;
       const ny = cy + Math.sin(rad) * node.orbitRadius * scale * 0.55;
@@ -232,7 +336,7 @@ export default function TechConstellation() {
     const rect = canvas.getBoundingClientRect();
     const mx = e.clientX - rect.left;
     const my = e.clientY - rect.top;
-    let found = getNodeAtPoint(mx, my);
+    const found = getNodeAtPoint(mx, my);
     hoveredNodeRef.current = found;
     setHoveredNode(found);
   };
@@ -244,7 +348,7 @@ export default function TechConstellation() {
     const touch = e.touches[0];
     const mx = touch.clientX - rect.left;
     const my = touch.clientY - rect.top;
-    let found = getNodeAtPoint(mx, my);
+    const found = getNodeAtPoint(mx, my);
     hoveredNodeRef.current = found;
     setHoveredNode(found);
   };
@@ -286,7 +390,8 @@ export default function TechConstellation() {
           The Constellation
         </h2>
         <p className="font-mono text-xs md:text-sm max-w-md" style={{ color: 'var(--chromium)' }}>
-          Languages, frameworks, and infrastructure that form the operating surface. Each node is a tool used in production.
+          Languages, frameworks, and infrastructure that form the operating surface. Each node is a
+          tool used in production.
         </p>
       </div>
 
@@ -297,7 +402,10 @@ export default function TechConstellation() {
           className="w-full"
           style={{ height: 'clamp(400px, 80vw, 840px)', maxHeight: '80vh', touchAction: 'none' }}
           onMouseMove={handleMouseMove}
-          onMouseLeave={() => { hoveredNodeRef.current = null; setHoveredNode(null); }}
+          onMouseLeave={() => {
+            hoveredNodeRef.current = null;
+            setHoveredNode(null);
+          }}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
           aria-label="Interactive tech stack constellation diagram"
@@ -308,10 +416,7 @@ export default function TechConstellation() {
       <div className="relative z-10 px-4 md:px-16 pb-8 md:pb-16 flex flex-wrap gap-4 md:gap-6">
         {Object.entries(CATEGORY_COLORS).map(([cat, color]) => (
           <div key={cat} className="flex items-center gap-2">
-            <div
-              className="w-2 h-2 rounded-full"
-              style={{ background: color }}
-            />
+            <div className="w-2 h-2 rounded-full" style={{ background: color }} />
             <span
               className="font-mono text-xs capitalize"
               style={{ color: 'rgba(122,132,144,0.6)' }}
@@ -335,10 +440,10 @@ export default function TechConstellation() {
           </div>
           <div className="p-3">
             <div style={{ color: 'var(--electric)' }}>
-              {TECH_NODES.find(n => n.id === hoveredNode)?.label}
+              {TECH_NODES.find((n) => n.id === hoveredNode)?.label}
             </div>
             <div style={{ color: 'var(--chromium)' }} className="mt-1">
-              category: {TECH_NODES.find(n => n.id === hoveredNode)?.category}
+              category: {TECH_NODES.find((n) => n.id === hoveredNode)?.category}
             </div>
             <div style={{ color: 'rgba(122,132,144,0.5)' }} className="mt-1">
               status: production

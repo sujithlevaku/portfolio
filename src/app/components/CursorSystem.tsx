@@ -66,7 +66,7 @@ export default function CursorSystem() {
     const onMouseLeaveInteractive = () => ringRef.current?.classList.remove('hovering');
 
     document.addEventListener('mousemove', onMouseMove);
-    document.querySelectorAll('a, button, [role="button"], input, select').forEach(el => {
+    document.querySelectorAll('a, button, [role="button"], input, select').forEach((el) => {
       el.addEventListener('mouseenter', onMouseEnterInteractive);
       el.addEventListener('mouseleave', onMouseLeaveInteractive);
     });
@@ -82,8 +82,18 @@ export default function CursorSystem() {
 
   return (
     <>
-      <div ref={dotRef} className="cursor-dot" aria-hidden="true" style={{ position: 'fixed', top: 0, left: 0 }} />
-      <div ref={ringRef} className="cursor-ring" aria-hidden="true" style={{ position: 'fixed', top: 0, left: 0 }} />
+      <div
+        ref={dotRef}
+        className="cursor-dot"
+        aria-hidden="true"
+        style={{ position: 'fixed', top: 0, left: 0 }}
+      />
+      <div
+        ref={ringRef}
+        className="cursor-ring"
+        aria-hidden="true"
+        style={{ position: 'fixed', top: 0, left: 0 }}
+      />
     </>
   );
 }

@@ -14,8 +14,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'border-b border-white/5 bg-void/90 backdrop-blur-xl' : 'bg-transparent'
+        scrolled ? 'border-b border-white/5 bg-void/90 backdrop-blur-xl' : 'bg-transparent'
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -45,14 +44,14 @@ export default function Header() {
             { label: 'Experience', href: '#architecture' },
             { label: 'Skills', href: '#stack' },
             { label: 'Contact', href: '#contact' },
-          ].map(link => (
+          ].map((link) => (
             <a
               key={link.label}
               href={link.href}
               className="font-mono text-xs tracking-widest uppercase transition-colors duration-200 hidden sm:block"
               style={{ color: 'var(--chromium)' }}
-              onMouseEnter={e => (e.currentTarget.style.color = 'var(--electric)')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'var(--chromium)')}
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--electric)')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--chromium)')}
             >
               {link.label}
             </a>
@@ -65,12 +64,12 @@ export default function Header() {
               borderColor: 'rgba(0,229,255,0.4)',
               background: 'rgba(0,229,255,0.05)',
             }}
-            onMouseEnter={e => {
+            onMouseEnter={(e) => {
               const el = e.currentTarget as HTMLElement;
               el.style.background = 'rgba(0,229,255,0.12)';
               el.style.boxShadow = '0 0 16px rgba(0,229,255,0.2)';
             }}
-            onMouseLeave={e => {
+            onMouseLeave={(e) => {
               const el = e.currentTarget as HTMLElement;
               el.style.background = 'rgba(0,229,255,0.05)';
               el.style.boxShadow = 'none';
