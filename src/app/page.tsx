@@ -7,6 +7,7 @@ import ArchitectureSection from './components/ArchitectureSection';
 import StatsSection from './components/StatsSection';
 import WaitlistSection from './components/WaitlistSection';
 import CursorSystem from './components/CursorSystem';
+import BackgroundAudio from './components/BackgroundAudio';
 
 export default function HomePage() {
   return (
@@ -15,6 +16,7 @@ export default function HomePage() {
       <div className="scanlines" aria-hidden="true" />
       <CursorSystem />
       <Header />
+      <BackgroundAudio />
       <main className="snap-container" style={{ paddingTop: 0 }}>
         <HeroSection />
         <TechConstellation />
