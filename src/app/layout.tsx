@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     google: '7hvpmhp7MPjBDbRwnWg9HWm0U0_yW9tctoFQw0gPRxY',
   },
   icons: {
-    icon: [{ url: '/assets/images/app_logo.png', type: 'image/x-icon' }],
+    icon: [{ url: '/assets/images/app_logo.ico', type: 'image/x-icon' }],
   },
 };
 
