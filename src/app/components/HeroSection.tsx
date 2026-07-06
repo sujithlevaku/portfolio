@@ -31,7 +31,7 @@ export default function HeroSection() {
           }, 22);
         }
       }, 40);
-    }, 3400);
+    }, 1200);
 
     return () => clearTimeout(headlineTimer);
   }, []);
