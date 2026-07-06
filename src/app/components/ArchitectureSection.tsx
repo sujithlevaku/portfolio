@@ -44,18 +44,55 @@ const PROJECTS: Project[] = [
     ],
   },
   {
+    name: 'Bookkeep',
+    description:
+      'Accounting automation platform integrating with eCommerce systems to automate journal entry creation.',
+    tech: ['Ruby on Rails', 'API Integrations'],
+    role: 'Senior Full Stack Developer',
+    company: 'Techigai',
+    period: '08/2022 – 06/2023',
+    highlights: [
+      'Developed Ruby on Rails web applications',
+      'Implemented authentication using Devise and CanCanCan',
+      'Built REST APIs and integrated external services',
+      'Collaborated with clients and internal teams',
+      'Delivered new features and application enhancements',
+    ],
+  },
+  {
+    name: 'Weintraub Building Inspections',
+    description:
+      'Construction inspection management platform that automates private and third-party building inspections, inspector scheduling, permit workflows, and inspection reporting.',
+    tech: [
+      'Ruby on Rails', 'MySQL', 'AWS', 'Amazon S3', 'iOS', 'Android', 'HTML5', 'CSS3', 'jQuery'],
+    role: 'Full Stack Developer',
+    company: 'Techaffinity',
+    period: '02/2019 – 07/2022',
+    highlights: [
+      'Developed web and mobile applications for managing building inspections',
+      'Implemented automatic inspector scheduling based on availability, jurisdiction, skills, and workload',
+      'Built customizable job card templates for multiple jurisdictions',
+      'Developed inspection request, approval, and certificate generation workflows',
+      'Integrated Amazon S3 for secure document and file storage',
+      'Implemented push notifications for inspectors and site supervisors',
+      'Generated PDF inspection reports and completion certificates',
+      'Optimized inspection workflow by replacing manual processes with digital automation'
+    ],
+  },
+  {
     name: 'MetaDash',
     description:
       'SaaS platform for educational institutions to manage courses, academic records, and payments.',
     tech: ['Ruby on Rails', 'PostgreSQL', 'AWS', 'Twilio', 'SendGrid', 'Razorpay'],
     role: 'Full Stack Developer',
-    company: 'Techaffinity',
-    period: '02/2019 – 07/2022',
+    company: 'Tesark Technologies',
+    period: '05/2018 – 02/2019',
     highlights: [
-      'Payment gateway integrations',
-      'AWS infrastructure deployment',
-      'Third-party API integrations',
-      'Client requirements & technical solutions',
+      'Designed and developed Ruby on Rails web applications',
+      'Integrated payment gateways and third-party APIs',
+      'Deployed and maintained applications on AWS',
+      'Worked directly with clients to gather requirements',
+      'Performed troubleshooting, performance tuning, and production support',
     ],
   },
 ];
