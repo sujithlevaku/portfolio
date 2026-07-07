@@ -22,7 +22,7 @@ const STATS: Stat[] = [
     label: 'Companies',
     value: 5,
     suffix: '',
-    description: 'Nucleus, Appen AI, Techigai, Techaffinity, Tesark Technologies',
+    description: 'Speriti, Appen AI, Techigai, Techaffinity, Tesark Technologies',
   },
   {
     label: 'Projects Shipped',

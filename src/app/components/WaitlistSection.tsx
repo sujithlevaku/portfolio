@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 
 const EXPERIENCE = [
   {
-    company: 'Nucleus Software Technologies',
+    company: 'Speriti Solutions',
     role: 'Senior Full Stack Developer (Contractor)',
     period: '10/2024 – Present',
     location: 'Toronto, ON',

@@ -36,7 +36,7 @@ export default function HomePage() {
     sameAs: ['https://github.com/sujithlevaku', 'https://linkedin.com/in/sujith-kumar-reddy-levaku'],
     worksFor: {
       '@type': 'Organization',
-      name: 'Nucleus Software Technologies',
+      name: 'Speriti Solutions',
     },
     alumniOf: {
       '@type': 'EducationalOrganization',

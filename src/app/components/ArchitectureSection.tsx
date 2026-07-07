@@ -19,7 +19,7 @@ const PROJECTS: Project[] = [
       'School bus safety platform improving student transportation safety and compliance across North America.',
     tech: ['Ruby on Rails', 'Elasticsearch', 'REST APIs', 'PostgreSQL'],
     role: 'Senior Full Stack Developer (Contractor)',
-    company: 'Nucleus Software Technologies',
+    company: 'Speriti Solutions',
     period: '10/2024 – Present',
     highlights: [
       'Backend services & application features',
