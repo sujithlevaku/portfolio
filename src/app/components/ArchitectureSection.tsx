@@ -80,7 +80,7 @@ const PROJECTS: Project[] = [
     ],
   },
   {
-    name: 'MetaDash',
+    name: 'Octobell',
     description:
       'SaaS platform for educational institutions to manage courses, academic records, and payments.',
     tech: ['Ruby on Rails', 'PostgreSQL', 'AWS', 'Twilio', 'SendGrid', 'Razorpay'],
